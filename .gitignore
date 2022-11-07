@@ -1,0 +1,14 @@
+# emacs backup files
+*~
+
+# files for decompression testing
+test-data/
+
+# object files
+*.o
+
+# executable file test
+test
+
+# executable file ungzip
+ungzip

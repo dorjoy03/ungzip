@@ -1,0 +1,22 @@
+This is a gzip decompression implementation written in C from scratch.
+There is no compression part yet. Unlike gzip, it doesn't remove the .gz
+file after decompressing. It just decompresses the .gz file into a new
+filename without the .gz extension (if there is any file with the same
+name in that directory it will be overwritten). It reads the .gz file into
+memory, keeps decompressing members (supports multi-member) and keeps
+writing to output file 8KiB (8192 bytes) at a time.
+
+Implementation details are in rfc 1952 (gzip file format) and rfc 1951 (deflate).
+
+If you want to test, just follow the below instructions to check the
+validity of the program:
+
+1. clone this repo
+2. cd ungzip
+3. make
+4. cp file file-copy
+5. gzip file
+5. ./ungzip file.gz
+6. cmp file file-copy
+
+cmp should not output anything if decompression is working correctly.
